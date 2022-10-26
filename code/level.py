@@ -28,7 +28,7 @@ class Level:
 
         graphics = {
             'grass': import_folder('../level_map/grass'),
-            'trees': import_folder('../z3/level_map/trees')
+            'trees': import_folder('../level_map/trees')
         }
         for style, layout in layouts.items():
             for row_index, row in enumerate(layout):
@@ -42,7 +42,9 @@ class Level:
                             random_grass_image = choice(graphics['grass'])
                             Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'grass', random_grass_image)
 
-                    #    if style == 'object':
+                        if style == 'object':
+                            surf = graphics['trees'][int(col)]
+                            Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)
                     #        surf = graphics['trees'][int(col)]
                     #        Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)
 

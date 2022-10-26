@@ -1,7 +1,6 @@
 import pygame
 from csv import reader
 from os import walk
-import pygame.image
 
 
 def import_csv_layout(path):
@@ -25,5 +24,3 @@ def import_folder(path):
             surface_list.append(image_surf)
 
     return surface_list
-
-

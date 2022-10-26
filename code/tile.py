@@ -9,7 +9,7 @@ class Tile(pygame.sprite.Sprite):
         self.image = surface
         # self.image = pygame.image.load('../image/tree2.PNG').convert_alpha()
         if sprite_type == 'object':
-            # do an offset
+            # do an offset for objects larger than 64*64.
             self.rect = self.image.get_rect(topleft=(pos[0], pos[1] - TILESIZE))
         else:
             # no offset required
