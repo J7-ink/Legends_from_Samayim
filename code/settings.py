@@ -2,10 +2,31 @@ WIDTH = 950
 HEIGHT = 720
 FPS = 60
 TILESIZE = 64
+# UI
+BAR_HEIGHT = 20
+HEALTH_BAR_WIDTH = 200
+ENERGY_BAR_WIDTH = 140
+ITEM_BOX_SIZE = 80
+UI_FONT = '../image/font/font.ttf'
+UI_FONT_SIZE = 18
+
+# general colors
+WATER_COLOR = '#71ddee'
+UI_BG_COLOR = '#222222'
+UI_BORDER_COLOR = '#111111'
+TEXT_COLOR = '#EEEEEE'
+
+
+# ui colors
+HEALTH_COLOR = 'green'
+ENERGY_COLOR = 'red'
+UI_BORDER_COLOR_ACTIVE = 'gold'
+
 
 weapon_data = {
     'sword': {'cooldown': 100, 'damage': 15, 'graphic': '../image/weapon/sword/blade.png'},
     'heavy_sword': {'cooldown': 300, 'damage': 55, 'graphic': '../image/weapon/sword/blade.png'}
+
 }
 # WORLD_MAP = [
 # ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'ex', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],

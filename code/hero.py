@@ -19,7 +19,6 @@ class Hero(pygame.sprite.Sprite):
 
         # movement
         self.direction = pygame.math.Vector2()
-        self.speed = 5
         self.attacking = False
         self.attack_cooldown = 400
         self.attack_time = None
@@ -33,6 +32,13 @@ class Hero(pygame.sprite.Sprite):
         self.can_switch_weapon = True
         self.weapon_switch_time = None
         self.switch_duration_cooldown = 200
+
+        # stats
+        self.stats = {'health': 100, 'energy': 60, 'attack': 10, 'skill': 4, 'speed': 5}
+        self.health = self.stats['health']
+        self.energy = self.stats['energy']
+        self.exp = 100
+        self.speed = self.stats['speed']
 
     def import_player_assets(self):
         character_path = "../image/hero/"
@@ -82,12 +88,10 @@ class Hero(pygame.sprite.Sprite):
             if keys[pygame.K_q] and self.can_switch_weapon:
                 self.can_switch_weapon = False
                 self.weapon_switch_time = pygame.time.get_ticks()
-
                 if self.weapon_index < len(list(weapon_data.keys())) - 1:
                     self.weapon_index += 1
                 else:
                     self.weapon_index = 0
-
                 self.weapon = list(weapon_data.keys())[self.weapon_index]
 
     def get_status(self):
