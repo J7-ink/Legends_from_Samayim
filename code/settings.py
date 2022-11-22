@@ -23,6 +23,7 @@ ENERGY_COLOR = 'red'
 UI_BORDER_COLOR_ACTIVE = 'gold'
 
 
+# weapons
 weapon_data = {
     'sword': {'cooldown': 100, 'damage': 15, 'graphic': '../image/weapon/sword/blade.png'},
     'heavy_sword': {'cooldown': 300, 'damage': 55, 'graphic': '../image/weapon/sword/blade.png'}
