@@ -25,8 +25,8 @@ UI_BORDER_COLOR_ACTIVE = 'gold'
 
 # weapons
 weapon_data = {
-    'sword': {'cooldown': 100, 'damage': 15, 'graphic': '../image/weapon/sword/blade.png'},
-    'heavy_sword': {'cooldown': 300, 'damage': 55, 'graphic': '../image/weapon/sword/blade.png'}
+    'sword': {'cooldown': 150, 'damage': 15, 'graphic': '../image/weapon/sword/blade.png'},
+    'heavy_sword': {'cooldown': 600, 'damage': 55, 'graphic': '../image/weapon/heavy_sword/blade.png'}
 
 }
 # WORLD_MAP = [
