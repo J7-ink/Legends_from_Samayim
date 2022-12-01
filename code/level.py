@@ -70,11 +70,21 @@ class Level:
         #         if col == 'p':
         #             self.player = Hero((x, y), [self.visible_sprites], self.obstacle_sprites)
 
-        self.player = Hero((3970, 9950), [self.visible_sprites], self.obstacle_sprites, self.create_attack, self.destroy_attack)
+        self.player = Hero((3970, 9950),
+                           [self.visible_sprites],
+                           self.obstacle_sprites,
+                           self.create_attack,
+                           self.destroy_attack,
+                           self.create_magic)
 
     def create_attack(self):
         self.current_attack = Weapon(self.player, [self.visible_sprites])
         # hero = , groups =
+
+    def create_magic(self, style, strenth, cost):
+        print(style)
+        print(strenth)
+        print(cost)
 
     def destroy_attack(self):
         if self.current_attack:

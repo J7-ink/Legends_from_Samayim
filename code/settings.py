@@ -29,6 +29,11 @@ weapon_data = {
     'heavy_sword': {'cooldown': 600, 'damage': 55, 'graphic': '../image/weapon/heavy_sword/blade.png'}
 
 }
+
+# special skills
+skill_data = {'single_arc': {'strength': 5, 'cost': 20, 'graphic': '../image/skill/single_arc/arc.png'},
+              'dual_arc': {'strength': 7, 'cost': 45, 'graphic': '../image/skill/dual_arc/arc.png'},
+              'minimal_heal': {'strength': 15, 'cost': 65, 'graphic': '../image/skill/heal/heal.png'}}
 # WORLD_MAP = [
 # ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'ex', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
 # ['x', 'x', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'x', 'x'],
