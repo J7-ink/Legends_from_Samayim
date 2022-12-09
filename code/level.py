@@ -9,6 +9,7 @@ from random import choice
 from debug import *
 from weapon import Weapon
 from ui import UI
+from enemy import Enemy
 
 
 class Level:
@@ -33,7 +34,8 @@ class Level:
         layouts = {
             'boundary': import_csv_layout('../level_map/game_map1_border.csv'),
             'object': import_csv_layout('../level_map/game_map1_trees.csv'),
-            'grass': import_csv_layout('../level_map/game_map1_grass.csv')
+            'grass': import_csv_layout('../level_map/game_map1_grass.csv'),
+            'entities': import_csv_layout('../level_map/game_map1_enemy.csv')
         }
 
         graphics = {
@@ -58,6 +60,28 @@ class Level:
 
                         if style == 'boundary':
                             Tile((x, y), [self.obstacle_sprites], 'invisible')
+
+                        if style == 'entities':
+                            if col == '394':
+                                self.player = Hero(
+                                    (x, y),
+                                    [self.visible_sprites],
+                                    self.obstacle_sprites,
+                                    self.create_attack,
+                                    self.destroy_attack,
+                                    self.create_magic)
+                            else:
+                                if col == 0:
+                                    monster_name = 'slime'
+                                elif col == 1:
+                                    monster_name = 'knight'
+                                elif col == 392:
+                                    monster_name = 'mino'
+                                elif col == 3:
+                                    monster_name = 'dual_knight'
+                                else:
+                                    monster_name = 'slime'
+                                Enemy(monster_name, (x, y), [self.visible_sprites])
         #         if col == 'x':
         #            Tile(pos=(x, y), groups=[self.visible_sprites, self.obstacle_sprites])
 
@@ -70,12 +94,12 @@ class Level:
         #         if col == 'p':
         #             self.player = Hero((x, y), [self.visible_sprites], self.obstacle_sprites)
 
-        self.player = Hero((3970, 9950),
-                           [self.visible_sprites],
-                           self.obstacle_sprites,
-                           self.create_attack,
-                           self.destroy_attack,
-                           self.create_magic)
+        # self.player = Hero((3970, 9950),
+        #                     [self.visible_sprites],
+        #                     self.obstacle_sprites,
+        #                     self.create_attack,
+        #                     self.destroy_attack,
+        #                     self.create_magic)
 
     def create_attack(self):
         self.current_attack = Weapon(self.player, [self.visible_sprites])
