@@ -8,7 +8,7 @@ class Game:
         # game setup
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
-        pygame.display.set_caption("Hero's Adventure")
+        pygame.display.set_caption("Legend of Heroes, Chapter 1, The Return")
         self.clock = pygame.time.Clock()
 
         self.level = Level()

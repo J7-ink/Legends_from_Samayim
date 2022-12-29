@@ -4,8 +4,9 @@ import pygame
 class Weapon(pygame.sprite.Sprite):
     def __init__(self, hero, groups):
         super().__init__(groups)
+        self.sprite_type = 'weapon'
         direction = hero.status.split('_')[0]
-        print(direction)
+        # print(direction)
 
         # graphic
         full_path = f'../image/weapon/{hero.weapon}/{direction}.PNG'
