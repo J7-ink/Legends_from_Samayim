@@ -2,6 +2,7 @@ WIDTH = 950
 HEIGHT = 720
 FPS = 60
 TILESIZE = 64
+
 # UI
 BAR_HEIGHT = 20
 HEALTH_BAR_WIDTH = 200
@@ -22,7 +23,6 @@ HEALTH_COLOR = 'green'
 ENERGY_COLOR = 'red'
 UI_BORDER_COLOR_ACTIVE = 'gold'
 
-
 # weapons
 weapon_data = {
     'sword': {'cooldown': 150, 'damage': 15, 'graphic': '../image/weapon/sword/blade.png'},
@@ -37,10 +37,10 @@ skill_data = {'single_arc': {'strength': 5, 'cost': 20, 'graphic': '../image/ski
 
 # enemy
 enemy_data = {
-    'slime': {'health': 70, 'exp': 20, 'damage': 10, 'attack_type': 'smack', 'attack_sound': '..audio/attack/slash.wav', 'speed': 1, 'resistance': 1, 'attack_radius': 40, 'notice_radius': 500},
-    'mino': {'health': 700, 'exp': 2000, 'damage': 50, 'attack_type': 'smack', 'attack_sound': '..audio/attack/slash.wav', 'speed': 3, 'resistance': 5, 'attack_radius': 120, 'notice_radius': 300},
+    'slime': {'health': 70, 'exp': 20, 'damage': 10, 'attack_type': 'smack', 'attack_sound': '..audio/attack/claw.wav', 'speed': 1, 'resistance': 1, 'attack_radius': 40, 'notice_radius': 500},
+    'mino': {'health': 700, 'exp': 2000, 'damage': 50, 'attack_type': 'smack', 'attack_sound': '..audio/attack/claw.wav', 'speed': 3, 'resistance': 5, 'attack_radius': 120, 'notice_radius': 300},
     'knight': {'health': 200, 'exp': 90, 'damage': 20, 'attack_type': 'slash', 'attack_sound': '..audio/attack/slash.wav', 'speed': 3, 'resistance': 3, 'attack_radius': 60, 'notice_radius': 200},
-    'kex': {'health': 900, 'exp': 4000, 'damage': 40, 'attack_type': 'smack', 'attack_sound': '..audio/attack/slash.wav', 'speed': 7, 'resistance': 6, 'attack_radius': 30, 'notice_radius': 400},
+    'kex': {'health': 900, 'exp': 4000, 'damage': 40, 'attack_type': 'smack', 'attack_sound': '..audio/attack/fireball.wav', 'speed': 7, 'resistance': 6, 'attack_radius': 30, 'notice_radius': 400},
     'dual_knight': {'health': 190, 'exp': 90, 'damage': 20, 'attack_type': 'slash', 'attack_sound': '..audio/attack/slash.wav', 'speed': 4, 'resistance': 3, 'attack_radius': 65, 'notice_radius': 250}
 }
 # WORLD_MAP = [

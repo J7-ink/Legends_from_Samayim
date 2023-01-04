@@ -100,10 +100,21 @@ class Enemy(Entity):
             if current_time - self.attack_time >= self.attack_cooldown:
                 self.can_attack = True
 
+    def get_damage(self, hero, attack_type):
+        if attack_type == 'weapon':
+            self.health -= hero.get_full_weapon_damage()
+        else:
+            pass # magic/skill damage
+
+    def check_death(self):
+        if self.health <= 0:
+            self.kill()
+
     def update(self):
         self.move(self.speed)
         self.animate()
         self.cooldown()
+        self.check_death()
 
     def enemy_update(self, hero):
         self.get_status(hero)
