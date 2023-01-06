@@ -1,6 +1,6 @@
 WIDTH = 950
 HEIGHT = 720
-FPS = 60
+FPS = 40
 TILESIZE = 64
 
 # UI

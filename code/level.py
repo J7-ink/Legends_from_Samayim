@@ -10,6 +10,8 @@ from debug import *
 from weapon import Weapon
 from ui import UI
 from enemy import Enemy
+from particles import AnimationPlayer
+from random import randint
 
 
 class Level:
@@ -31,6 +33,9 @@ class Level:
 
         # user interface
         self.ui = UI()
+
+        # particles
+        self.animation_player = AnimationPlayer()
 
     def map_make(self):
         layouts = {
@@ -127,6 +132,13 @@ class Level:
                 if collision_sprites:
                     for target_sprite in collision_sprites:
                         if target_sprite.sprite_type == 'grass':
+                            # the next two lines will get the position the struck grass.
+                            pos = target_sprite.rect.center
+                            offset_pos = pygame.math.Vector2(0, 70)
+                            # this line will make multiple leaves appear, when grass is cut.
+                            for leaf in range(randint(3, 6)):
+                                # this line will make the particles for grass.
+                                self.animation_player.create_grass_particles(pos - offset_pos, [self.visible_sprites])
                             target_sprite.kill()
                         else:
                             target_sprite.get_damage(self.player, attack_sprite.sprite_type)
@@ -137,6 +149,7 @@ class Level:
             self.player.vunerable_to_attack = False
             self.player.hurt_time = pygame.time.get_ticks()
             # spawn particles
+            self.animation_player.create_particles(attack_type, self.player.rect.center, [self.visible_sprites])
 
     def run(self):
         # Update and draw the game.
