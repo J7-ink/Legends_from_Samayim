@@ -5,7 +5,7 @@ from support import *
 
 
 class Enemy(Entity):
-    def __init__(self, enemy_name, position, groups, obstacle_sprites):
+    def __init__(self, enemy_name, position, groups, obstacle_sprites, damage_hero):
 
         # general setup
         super().__init__(groups)
@@ -36,7 +36,13 @@ class Enemy(Entity):
         # player interaction
         self.can_attack = True
         self.attack_time = None
-        self.attack_cooldown = 450 # this will change when we add it to individual attributes in the enemy dictionary
+        self.attack_cooldown = 450 # this will change when we add it to individual attributes in the enemy dictionary.
+        self.damage_hero = damage_hero
+
+        # invincibility timer
+        self.vulnerable_to_attack = True
+        self.hit_time = None
+        self.invincibility_length = 300
 
     def import_graphics(self, name):
         self.animations = {'idle': [], 'move': [], 'attack': []}
@@ -74,6 +80,7 @@ class Enemy(Entity):
         if self.status == 'attack':
             self.attack_time = pygame.time.get_ticks()
             print("attack")
+            self.damage_hero(self.attack_damage, self.attack_type)
         elif self.status == 'move':
             self.direction = self.get_hero_distance_direction(hero)[1]
         else:
@@ -92,28 +99,51 @@ class Enemy(Entity):
             self.frame_index = 0
 
         self.image = animation[int(self.frame_index)]
-        self.rect = self.image.get_rect(center = self.hitbox.center)
+        self.rect = self.image.get_rect(center=self.hitbox.center)
 
-    def cooldown(self):
+        if not self.vulnerable_to_attack:
+            # make enemies flicker.
+            alpha = self.wave_value()
+            self.image.set_alpha(alpha)
+        else:
+            self.image.set_alpha(255)
+
+    def cooldowns(self):
+        current_time = pygame.time.get_ticks()
         if not self.can_attack:
-            current_time = pygame.time.get_ticks()
             if current_time - self.attack_time >= self.attack_cooldown:
                 self.can_attack = True
+        if not self.vulnerable_to_attack:
+            if current_time - self.hit_time >= self.invincibility_length:
+                self.vulnerable_to_attack = True
 
     def get_damage(self, hero, attack_type):
-        if attack_type == 'weapon':
-            self.health -= hero.get_full_weapon_damage()
-        else:
-            pass # magic/skill damage
+        if self.vulnerable_to_attack:
+            self.direction = self.get_hero_distance_direction(hero)[1]
+            if attack_type == 'weapon':
+                self.health -= hero.get_full_weapon_damage()
+            else:
+                pass # magic/skill damage
+
+            self.hit_time = pygame.time.get_ticks()
+            self.vulnerable_to_attack = False
 
     def check_death(self):
         if self.health <= 0:
             self.kill()
 
+    def wound_reaction(self):
+        """
+        this allows the enemy to be pushed back when they are attacked.
+        """
+        if not self.vulnerable_to_attack:
+            self.direction *= -self.resistance
+
     def update(self):
+        self.wound_reaction()
         self.move(self.speed)
         self.animate()
-        self.cooldown()
+        self.cooldowns()
         self.check_death()
 
     def enemy_update(self, hero):

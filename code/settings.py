@@ -37,11 +37,25 @@ skill_data = {'single_arc': {'strength': 5, 'cost': 20, 'graphic': '../image/ski
 
 # enemy
 enemy_data = {
-    'slime': {'health': 70, 'exp': 20, 'damage': 10, 'attack_type': 'smack', 'attack_sound': '..audio/attack/claw.wav', 'speed': 1, 'resistance': 1, 'attack_radius': 40, 'notice_radius': 500},
-    'mino': {'health': 700, 'exp': 2000, 'damage': 50, 'attack_type': 'smack', 'attack_sound': '..audio/attack/claw.wav', 'speed': 3, 'resistance': 5, 'attack_radius': 120, 'notice_radius': 300},
-    'knight': {'health': 200, 'exp': 90, 'damage': 20, 'attack_type': 'slash', 'attack_sound': '..audio/attack/slash.wav', 'speed': 3, 'resistance': 3, 'attack_radius': 60, 'notice_radius': 200},
-    'kex': {'health': 900, 'exp': 4000, 'damage': 40, 'attack_type': 'smack', 'attack_sound': '..audio/attack/fireball.wav', 'speed': 7, 'resistance': 6, 'attack_radius': 30, 'notice_radius': 400},
-    'dual_knight': {'health': 190, 'exp': 90, 'damage': 20, 'attack_type': 'slash', 'attack_sound': '..audio/attack/slash.wav', 'speed': 4, 'resistance': 3, 'attack_radius': 65, 'notice_radius': 250}
+    'slime': {'health': 70, 'exp': 20, 'damage': 10,
+              'attack_type': 'smack', 'attack_sound': '..audio/attack/claw.wav',
+              'speed': 1, 'resistance': 3, 'attack_radius': 40, 'notice_radius': 500},
+
+    'mino': {'health': 700, 'exp': 2000, 'damage': 50,
+             'attack_type': 'smack', 'attack_sound': '..audio/attack/claw.wav',
+             'speed': 3, 'resistance': 5, 'attack_radius': 120, 'notice_radius': 300},
+
+    'knight': {'health': 200, 'exp': 90, 'damage': 20,
+               'attack_type': 'slash', 'attack_sound': '..audio/attack/slash.wav',
+               'speed': 3, 'resistance': 3, 'attack_radius': 60, 'notice_radius': 200},
+
+    'kex': {'health': 900, 'exp': 4000, 'damage': 40,
+            'attack_type': 'smack', 'attack_sound': '..audio/attack/fireball.wav',
+            'speed': 7, 'resistance': 6, 'attack_radius': 30, 'notice_radius': 400},
+
+    'dual_knight': {'health': 190, 'exp': 90, 'damage': 20,
+                    'attack_type': 'slash', 'attack_sound': '..audio/attack/slash.wav',
+                    'speed': 4, 'resistance': 3, 'attack_radius': 65, 'notice_radius': 250}
 }
 # WORLD_MAP = [
 # ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'ex', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],

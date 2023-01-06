@@ -74,21 +74,17 @@ class Level:
                                     self.destroy_attack,
                                     self.create_magic)
                             else:
-                                if col == 0:
-                                    enemy_name = 'slime'
-                                elif col == 1:
-                                    enemy_name = 'knight'
-                                elif col == 2:
-                                    enemy_name = 'mino'
-                                elif col == 3:
-                                    enemy_name = 'dual_knight'
-                                else:
-                                    enemy_name = 'slime'
-                                    Enemy(
-                                        enemy_name,
-                                        (x, y),
-                                        [self.visible_sprites, self.attackable_sprites],
-                                        self.obstacle_sprites)
+                                if col == 0: enemy_name = 'slime'
+                                elif col == 1: enemy_name = 'knight'
+                                elif col == 2: enemy_name = 'mino'
+                                elif col == 3: enemy_name = 'dual_knight'
+                                else: enemy_name = 'slime'
+                                Enemy(
+                                    enemy_name,
+                                    (x, y),
+                                    [self.visible_sprites, self.attackable_sprites],
+                                    self.obstacle_sprites,
+                                    self.damage_hero)
 
         #         if col == 'x':
         #            Tile(pos=(x, y), groups=[self.visible_sprites, self.obstacle_sprites])
@@ -134,6 +130,13 @@ class Level:
                             target_sprite.kill()
                         else:
                             target_sprite.get_damage(self.player, attack_sprite.sprite_type)
+
+    def damage_hero(self, amount, attack_type):
+        if self.player.vunerable_to_attack:
+            self.player.health -= amount
+            self.player.vunerable_to_attack = False
+            self.player.hurt_time = pygame.time.get_ticks()
+            # spawn particles
 
     def run(self):
         # Update and draw the game.

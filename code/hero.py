@@ -45,6 +45,11 @@ class Hero(Entity):
         self.exp = 125
         self.speed = self.stats['speed']
 
+        # damage_timer
+        self.vunerable_to_attack = True
+        self.hurt_time = None
+        self.inviceibility_time = 550
+
     def import_player_assets(self):
         character_path = "../image/hero/"
         self.animations = {'up': [], 'down': [], 'left': [], 'right': [],
@@ -148,6 +153,10 @@ class Hero(Entity):
             if current_time - self.magic_switch_time >= self.switch_duration_cooldown:
                 self.can_switch_magic = True
 
+        if not self.vunerable_to_attack:
+            if current_time - self.hurt_time >= self.inviceibility_time:
+                self.vunerable_to_attack = True
+
     def animate(self):
         animation = self.animations[self.status]
 
@@ -159,6 +168,13 @@ class Hero(Entity):
         # set the image.
         self.image = animation[int(self.frame_index)]
         self.rect = self.image.get_rect(center=self.hitbox.center)
+
+        # add flicker
+        if not self.vunerable_to_attack:
+            alpha = self.wave_value()
+            self.image.set_alpha(alpha)
+        else:
+            self.image.set_alpha(255)
 
     def get_full_weapon_damage(self):
         base_damage = self.stats['attack']
