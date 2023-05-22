@@ -33,7 +33,7 @@ weapon_data = {
 # special skills
 skill_data = {'single_arc': {'strength': 5, 'cost': 20, 'graphic': '../image/skill/single_arc/arc.png'},
               'dual_arc': {'strength': 7, 'cost': 45, 'graphic': '../image/skill/dual_arc/arc.png'},
-              'minimal_heal': {'strength': 15, 'cost': 65, 'graphic': '../image/skill/heal/heal.png'}}
+              'minimal_heal': {'strength': 25, 'cost': 45, 'graphic': '../image/skill/heal/heal.png'}}
 
 # enemy
 enemy_data = {

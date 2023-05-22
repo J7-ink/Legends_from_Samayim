@@ -12,6 +12,7 @@ from ui import UI
 from enemy import Enemy
 from particles import AnimationPlayer
 from random import randint
+from skills import SkillPlayer
 
 
 class Level:
@@ -36,6 +37,7 @@ class Level:
 
         # particles
         self.animation_player = AnimationPlayer()
+        self.skill_player = SkillPlayer(self.animation_player)
 
     def map_make(self):
         layouts = {
@@ -79,17 +81,18 @@ class Level:
                                     self.destroy_attack,
                                     self.create_magic)
                             else:
-                                if col == 0: enemy_name = 'slime'
-                                elif col == 1: enemy_name = 'knight'
-                                elif col == 2: enemy_name = 'mino'
-                                elif col == 3: enemy_name = 'dual_knight'
+                                if col == 5: enemy_name = 'slime'
+                                elif col == 6: enemy_name = 'knight'
+                                elif col == 9: enemy_name = 'mino'
+                                elif col == 8: enemy_name = 'kex'
                                 else: enemy_name = 'slime'
                                 Enemy(
                                     enemy_name,
                                     (x, y),
                                     [self.visible_sprites, self.attackable_sprites],
                                     self.obstacle_sprites,
-                                    self.damage_hero)
+                                    self.damage_hero,
+                                    self.trigger_death_particles)
 
         #         if col == 'x':
         #            Tile(pos=(x, y), groups=[self.visible_sprites, self.obstacle_sprites])
@@ -115,7 +118,15 @@ class Level:
         # hero = , groups =
 
     def create_magic(self, style, strength, cost):
-        print(style)
+        if style == 'minimal_heal':
+            self.skill_player.minimal_heal(self.player, strength, cost, [self.visible_sprites])
+
+        if style == 'single_arc':
+            pass
+        if style== 'dual_arc':
+            pass
+
+        # print(style)
         print(strength)
         print(cost)
 
@@ -150,6 +161,10 @@ class Level:
             self.player.hurt_time = pygame.time.get_ticks()
             # spawn particles
             self.animation_player.create_particles(attack_type, self.player.rect.center, [self.visible_sprites])
+
+    def trigger_death_particles(self, pos, particle_type):
+        """makes a particle effect for when you defeat an enemy, or when you yourself are defeated"""
+        self.animation_player.create_particles(particle_type, pos, self.visible_sprites)
 
     def run(self):
         # Update and draw the game.

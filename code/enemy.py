@@ -5,7 +5,7 @@ from support import *
 
 
 class Enemy(Entity):
-    def __init__(self, enemy_name, position, groups, obstacle_sprites, damage_hero):
+    def __init__(self, enemy_name, position, groups, obstacle_sprites, damage_hero, trigger_death_particles):
 
         # general setup
         super().__init__(groups)
@@ -38,6 +38,7 @@ class Enemy(Entity):
         self.attack_time = None
         self.attack_cooldown = 450 # this will change when we add it to individual attributes in the enemy dictionary.
         self.damage_hero = damage_hero
+        self.trigger_death_particles = trigger_death_particles
 
         # invincibility timer
         self.vulnerable_to_attack = True
@@ -131,6 +132,7 @@ class Enemy(Entity):
     def check_death(self):
         if self.health <= 0:
             self.kill()
+            self.trigger_death_particles(self.rect.center, self.enemy_name)
 
     def wound_reaction(self):
         """
