@@ -182,8 +182,10 @@ class Hero(Entity):
         return base_damage + weapon_damage
 
     def energy_recovery(self):
-        if self.energy <= self.stats['energy']:
-            self.energy += 1
+        if self.energy < self.stats['energy']:
+            self.energy += .005 * self.stats['skill']
+        else:
+            self.energy = self.stats['energy']
 
     def update(self):
         self.input()
@@ -191,3 +193,4 @@ class Hero(Entity):
         self.get_status()
         self.animate()
         self.move(self.speed)
+        self.energy_recovery()
