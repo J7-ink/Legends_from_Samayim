@@ -10,7 +10,10 @@ class AnimationPlayer:
             'flame': import_folder('../particles/flame/frames'),
             'aura': import_folder('../particles/aura'),
             'heal': import_folder('../particles/heal/frames'),
-            'single_arc': import_folder('../image/skill/single_arc'),
+            'arc': import_folder('../particles/arc/up_arc'),
+            'down_arc': import_folder('../particles/arc/down_arc'),
+            'right_arc': import_folder('../particles/arc/right_arc'),
+            'left_arc': import_folder('../particles/arc/left_arc'),
             'dual_arc': import_folder('../image/skill/dual_arc'),
             'minor_heal': import_folder('../image/skill/heal/frames'),
 

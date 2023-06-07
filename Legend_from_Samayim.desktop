@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=0.91
+Name=Legends from Samayim
+Exec=LoS %F
+Icon=/icon.png
+Terminal=false
+MimeType=??application/x-pyromod+zip;??
+Type=Application
+Categories=Game;AdventureGame;
+# Use the most powerful GPU available by default (i.e. a dedicated Nvidia or AMD card instead of
+ the integated Intel card)
+PrefersNonDefaultGPU=true
+Comment=A 2D adventure game full of exploration.
+Keywords=Adventure;Exploration;Fantasy;Dungeons;Adventure Game;Open World;Open World Game;
+Actions=????

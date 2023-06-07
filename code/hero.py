@@ -119,7 +119,6 @@ class Hero(Entity):
                 self.magic = list(skill_data.keys())[self.magic_index]
 
     def get_status(self):
-
         # idle state.
         if self.direction.x == 0 and self.direction.y == 0:
             if not 'idle' in self.status and not 'attack' in self.status:

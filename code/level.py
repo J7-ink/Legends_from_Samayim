@@ -122,8 +122,8 @@ class Level:
             self.skill_player.minimal_heal(self.player, strength, cost, [self.visible_sprites])
 
         if style == 'single_arc':
-            pass
-        if style== 'dual_arc':
+            self.skill_player.single_arc(self.player, cost, [self.visible_sprites])
+        if style == 'dual_arc':
             pass
 
         # print(style)
