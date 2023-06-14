@@ -96,7 +96,7 @@ class Hero(Entity):
                 style = list(skill_data.keys())[self.magic_index]
                 strength = list(skill_data.values())[self.magic_index]['strength'] + self.stats['skill']
                 cost = list(skill_data.values())[self.magic_index]['cost']
-                self.create_magic(style, strength,cost)
+                self.create_magic(style, strength, cost)
 
             # weapon switch
             if keys[pygame.K_q] and self.can_switch_weapon:
@@ -182,7 +182,7 @@ class Hero(Entity):
 
     def energy_recovery(self):
         if self.energy < self.stats['energy']:
-            self.energy += .005 * self.stats['skill']
+            self.energy += 3.005 * self.stats['skill']
         else:
             self.energy = self.stats['energy']
 

@@ -124,7 +124,7 @@ class Level:
         if style == 'single_arc':
             self.skill_player.single_arc(self.player, cost, [self.visible_sprites])
         if style == 'dual_arc':
-            pass
+            self.skill_player.dual_arc(self.player, cost, [self.visible_sprites])
 
         # print(style)
         print(strength)

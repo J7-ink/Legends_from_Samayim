@@ -7,7 +7,7 @@ class AnimationPlayer:
     def __init__(self):
         self.frames = {
             # magic/skills
-            'flame': import_folder('../particles/flame/frames'),
+            # unneeded 'flame': import_folder('../particles/flame/frames'),
             'aura': import_folder('../particles/aura'),
             'heal': import_folder('../particles/heal/frames'),
             'arc': import_folder('../particles/arc/up_arc'),
@@ -78,7 +78,7 @@ class ParticleEffect(pygame.sprite.Sprite):
     def __init__(self, pos, animation_frames, groups):
         super().__init__(groups)
         self.frame_index = 0
-        self.animation_speed = 0.15
+        self.animation_speed = 0.23
         self.frames = animation_frames
         self.image = self.frames[self.frame_index]
         self.rect = self.image.get_rect(center=pos)
