@@ -19,7 +19,6 @@ class SkillPlayer:
 
     def single_arc(self, hero, cost, groups):
         if hero.energy >= cost:
-
             hero.energy -= cost
             # gets direction for the ability to go
             if hero.status.split('_')[0] == 'right':
@@ -27,8 +26,10 @@ class SkillPlayer:
 
             elif hero.status.split('_')[0] == 'left':
                 direction = pygame.math.Vector2(-1, 0)
+
             elif hero.status.split('_')[0] == 'up':
                 direction = pygame.math.Vector2(0, -1)
+
             else:
                 direction = pygame.math.Vector2(0, 1)
 
