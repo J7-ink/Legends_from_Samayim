@@ -1,6 +1,6 @@
 import pygame
 from settings import *
-from support import import_folder
+# from support import import_folder
 
 
 class SkillPlayer:

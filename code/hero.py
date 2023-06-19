@@ -180,6 +180,11 @@ class Hero(Entity):
         weapon_damage = weapon_data[self.weapon]['damage']
         return base_damage + weapon_damage
 
+    def get_full_skill_damage(self):
+        base_damage = self.stats['skill']
+        skill_damage = skill_data[self.magic]['strength']
+        return base_damage + skill_damage
+
     def energy_recovery(self):
         if self.energy < self.stats['energy']:
             self.energy += 3.005 * self.stats['skill']
