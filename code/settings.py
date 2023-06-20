@@ -55,8 +55,7 @@ enemy_data = {
 
     'dual_knight': {'health': 190, 'exp': 90, 'damage': 20,
                     'attack_type': 'slash', 'attack_sound': '..audio/attack/slash.wav',
-                    'speed': 4, 'resistance': 3, 'attack_radius': 65, 'notice_radius': 250}
-}
+                    'speed': 4, 'resistance': 3, 'attack_radius': 65, 'notice_radius': 250}}
 # WORLD_MAP = [
 # ['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'ex', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
 # ['x', 'x', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'x', 'x'],
