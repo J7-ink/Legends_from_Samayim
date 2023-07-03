@@ -136,7 +136,7 @@ class Enemy(Entity):
 
     def wound_reaction(self):
         """
-        this allows the enemy to be pushed back when they are attacked.
+        This allows the enemy to be pushed back when they are attacked.
         """
         if not self.vulnerable_to_attack:
             self.direction *= -self.resistance

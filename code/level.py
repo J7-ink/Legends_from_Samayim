@@ -2,8 +2,6 @@ import pygame
 from settings import *
 from tile import Tile
 from hero import Hero
-# from piller1 import Piller
-# from wall import Wall
 from support import import_csv_layout, import_folder
 from random import choice
 from debug import *
@@ -81,11 +79,17 @@ class Level:
                                     self.destroy_attack,
                                     self.create_magic)
                             else:
-                                if col == 5: enemy_name = 'slime'
-                                elif col == 6: enemy_name = 'knight'
-                                elif col == 9: enemy_name = 'mino'
-                                elif col == 8: enemy_name = 'kex'
-                                else: enemy_name = 'slime'
+                                if col == '5':
+                                    enemy_name = 'slime'
+                                elif col == '6':
+                                    enemy_name = 'knight'
+                                elif col == '9':
+                                    enemy_name = 'mino'
+                                elif col == '8':
+                                    enemy_name = 'kex'
+                                else:
+                                    enemy_name = 'slime'
+
                                 Enemy(
                                     enemy_name,
                                     (x, y),
@@ -93,25 +97,6 @@ class Level:
                                     self.obstacle_sprites,
                                     self.damage_hero,
                                     self.trigger_death_particles)
-
-        #         if col == 'x':
-        #            Tile(pos=(x, y), groups=[self.visible_sprites, self.obstacle_sprites])
-
-        #         if col == 'p1':
-        #            Piller(pos=(x, y), groups=[self.visible_sprites, self.obstacle_sprites])
-
-        #         if col == 'w':
-        #             Wall(pos=(x, y), groups=[self.visible_sprites, self.obstacle_sprites])
-
-        #         if col == 'p':
-        #             self.player = Hero((x, y), [self.visible_sprites], self.obstacle_sprites)
-
-        # self.player = Hero((3970, 9950),
-        #                     [self.visible_sprites],
-        #                     self.obstacle_sprites,
-        #                     self.create_attack,
-        #                     self.destroy_attack,
-        #                     self.create_magic)
 
     def create_attack(self):
         self.current_attack = Weapon(self.player, [self.visible_sprites, self.attack_sprites])
@@ -127,8 +112,8 @@ class Level:
             self.skill_player.dual_arc(self.player, cost, [self.visible_sprites, self.attack_sprites])
 
         # print(style)
-        print(strength)
-        print(cost)
+        # print(strength)
+        # print(cost)
 
     def destroy_attack(self):
         if self.current_attack:

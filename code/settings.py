@@ -41,15 +41,15 @@ enemy_data = {
               'attack_type': 'smack', 'attack_sound': '..audio/attack/claw.wav',
               'speed': 1, 'resistance': 3, 'attack_radius': 40, 'notice_radius': 500},
 
-    'mino': {'health': 700, 'exp': 2000, 'damage': 50,
-             'attack_type': 'smack', 'attack_sound': '..audio/attack/claw.wav',
-             'speed': 3, 'resistance': 5, 'attack_radius': 120, 'notice_radius': 300},
+    'mino': {'health': 650, 'exp': 500, 'damage': 40,
+             'attack_type': 'slash', 'attack_sound': '..audio/attack/claw.wav',
+             'speed': 3, 'resistance': 5, 'attack_radius': 70, 'notice_radius': 600},
 
     'knight': {'health': 200, 'exp': 90, 'damage': 20,
                'attack_type': 'slash', 'attack_sound': '..audio/attack/slash.wav',
                'speed': 3, 'resistance': 3, 'attack_radius': 60, 'notice_radius': 200},
 
-    'kex': {'health': 900, 'exp': 4000, 'damage': 40,
+    'kex': {'health': 900, 'exp': 1000, 'damage': 45,
             'attack_type': 'smack', 'attack_sound': '..audio/attack/fireball.wav',
             'speed': 7, 'resistance': 6, 'attack_radius': 30, 'notice_radius': 400},
 

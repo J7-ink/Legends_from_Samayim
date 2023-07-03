@@ -29,8 +29,8 @@ class AnimationPlayer:
             # monster deaths
             'slime': import_folder('../particles/smoke_orange'),
             'squid': import_folder('../particles/smoke_orange'),
-            'raccoon': import_folder('../particles/raccoon'),
-            'spirit': import_folder('../particles/nova)'),
+            'mino': import_folder('../particles/bamboo'),
+            'knight': import_folder('../particles/nova'),
             'bamboo': import_folder('../particles/bamboo'),
 
             # leafs
