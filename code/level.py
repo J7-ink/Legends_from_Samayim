@@ -62,9 +62,9 @@ class Level:
                             Tile((x, y), [self.visible_sprites, self.obstacle_sprites, self.attackable_sprites],
                                  'grass', random_grass_image)
 
-                        if style == 'object':
-                            surf = graphics['object'][int(col)]
-                            Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)
+                        # if style == 'object':
+                        #    surf = graphics['object'][int(col)]
+                        #    Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)
 
                         if style == 'boundary':
                             Tile((x, y), [self.obstacle_sprites], 'invisible')

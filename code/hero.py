@@ -39,8 +39,8 @@ class Hero(Entity):
         self.magic_switch_time = None
 
         # stats
-        self.stats = {'health': 100, 'energy': 60, 'attack': 10, 'skill': 4, 'speed': 5}
-        self.max_stats = {'health': 750, 'energy': 300, 'attack': 70, 'skill': 15, 'speed': 10}
+        self.stats = {'health': 100, 'energy': 60, 'attack': 10, 'skill': 5, 'speed': 5}
+        self.max_stats = {'health': 750, 'energy': 300, 'attack': 70, 'skill': 20, 'speed': 10}
         self.health = self.stats['health']
         self.energy = self.stats['energy']
         self.exp = 125
