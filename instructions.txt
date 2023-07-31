@@ -11,3 +11,4 @@ To switch weapons press the Q button.
 To switch abilities press the E button.
 
 To pause  the game press the M button.
+
