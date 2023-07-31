@@ -1,0 +1,13 @@
+In order to start to game run main.py.
+
+To move press the arrow keys and hold down another button.
+
+To attack press the A button.
+
+To use special abilities press the S button.
+
+To switch weapons press the Q button.
+
+To switch abilities press the E button.
+
+To pause  the game press the M button.

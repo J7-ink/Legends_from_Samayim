@@ -1,4 +1,5 @@
-import pygame, sys
+import pygame
+import sys
 from settings import *
 from level import Level
 
@@ -34,4 +35,3 @@ class Game:
 if __name__ == "__main__":
     game = Game()
     game.run()
-

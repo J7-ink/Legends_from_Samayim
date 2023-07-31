@@ -1,6 +1,7 @@
 import pygame
 from settings import *
 
+
 class Upgrade:
     """
     This class makes a menu with a selection index that can allow you to influence your stats
@@ -23,16 +24,17 @@ class Upgrade:
         keys = pygame.key.get_pressed()
 
         if self.can_move:
-            if keys[pygame.K_RIGHT] and self.selection_index < self.attribute_number -1:
+            if keys[pygame.K_RIGHT] and self.selection_index < self.attribute_number - 1:
                 self.selection_index += 1
                 self.can_move = False
                 self.selection_time = pygame.time.get_ticks()
+
             elif keys[pygame.K_LEFT] and self.selection_index >= 1:
                 self.selection_index -= 1
                 self.can_move = False
                 self.selection_time = pygame.time.get_ticks()
 
-            if keys[pygame.K_SPACE]:
+            if keys[pygame.K_z]:
                 # this will be my select button
                 self.can_move = False
                 self.selection_time = pygame.time.get_ticks()
@@ -41,7 +43,7 @@ class Upgrade:
     def selection_cooldown(self):
         if not self.can_move:
             current_time = pygame.time.get_ticks()
-            if current_time - self.selection_time >= 300:
+            if current_time - self.selection_time >= 500:
                 self.can_move = True
 
     def display(self):
